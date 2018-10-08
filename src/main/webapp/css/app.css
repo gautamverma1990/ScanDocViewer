@@ -1,0 +1,25 @@
+.inlineblock{	display: inline-block;}
+
+.container{	width : 100% !important;}
+
+.mb-15 { margin-bottom : 15px }
+
+.liner{width : 100% !important; border-bottom:1px solid #bbb; }
+
+.logoimg{height: 50px; margin-left: 6%;}
+.logoDiv{width: 100%;}
+
+.jumbotron{padding-top: 0px !important; min-height: 100%; }
+.navbar-right .dropdown-menu{right:auto}
+
+.searchError{color: #A94441 !important; width: 400px; font-weight: bold;}
+
+.checkbox{width: 20px; height: 20px; display:inline-block; }
+
+.checkboxAll{width: 20px; height: 20px; display:inline-block; }
+ 
+ .emailError{color: #A94441 !important; font-weight: bold;}
+ 
+ .bold{font-weight: bold;}
+ 
+ .combinepdf { font-size: 16px !important; font-weight: bold !important; padding-left: 5px;}

@@ -1,0 +1,60 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <!-- Example how to substitue
+             sed -e "s/\$NEXUS_USER/ACTUAL_USER/g"
+        -->
+        <server>
+            <id>nexus-dbschenker</id>
+            <username>$NEXUS_USER</username>
+            <password>$NEXUS_PASS</password>
+        </server>
+        <server>
+            <id>admdel-snapshot</id>
+            <username>$NEXUS_USER</username>
+            <password>$NEXUS_PASS</password>
+        </server>
+        <server>
+            <id>admdel-release</id>
+            <username>$NEXUS_USER</username>
+            <password>$NEXUS_PASS</password>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>nexus-dbschenker</id>
+            <mirrorOf>*,!admdel-snapshot,!admdel-release</mirrorOf>
+            <url>https://nexus.signintra.com/content/groups/public</url>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <repositories>
+                <repository>
+                    <id>admdel-snapshot</id>
+                    <name>Nexus admdel Snapshot Repo</name>
+                    <url>https://nexus.signintra.com/content/repositories/admdel-snapshot</url>
+                </repository>
+                <repository>
+                    <id>admdel-release</id>
+                    <name>Nexus admdel Release Repo</name>
+                    <url>https://nexus.signintra.com/content/repositories/admdel-release</url>
+                </repository>
+            </repositories>
+        </profile>
+          <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sonar.signintra.com</sonar.host.url>
+                <sonar.login>$SONAR_TOKEN</sonar.login>
+                <!-- sonar pw not rquired if you use token -->
+                <!-- you can use -Dsonar.branch param for multibranch projects -->
+            </properties>
+            </profile>
+        </profiles>
+</settings>
