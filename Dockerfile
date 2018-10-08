@@ -2,7 +2,7 @@
 ## Dockerfile template for Tomcat based services
 ################################################################
 FROM tomcat:8.0.43-jre8-alpine
-MAINTAINER gautam.verma-extern@dbschenker.com
+MAINTAINER gautamverma.office@gmail.com
 ENV CATALINA_OPTS "-Djava.security.egd=file:/dev/./urandom -Duser.timezone=UTC"
 ## remove unused apps see https://hub.docker.com/r/rossbachp/apache-tomcat8/~/dockerfile/
 RUN rm -rf /usr/local/tomcat/webapps/examples /usr/local/tomcat/webapps/docs /usr/local/tomcat/webapps/ROOT \
